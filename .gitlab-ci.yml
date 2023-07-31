@@ -1,0 +1,63 @@
+variables:
+  REGISTRY: 968557029040.dkr.ecr.ap-southeast-1.amazonaws.com/scroll-id/dns-api
+
+include:
+  - project: 'devops-sharing/gitlab-ci-templates/general'
+    file: 'python.gitlab-ci.yml'
+  # - project: 'devops-sharing/gitlab-ci-templates/deploy'
+  #   file: 'scroll-id.dns-api.gitlab-ci.yml'
+
+stages:
+  - prepare
+  - build
+  - deploy
+
+get_submodule:
+  image: alpine/git
+  stage: prepare
+  script:
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.rinznetwork.com/devops-sharing/shared-libraries/dns-lib.git
+  only:
+    refs:
+      - stag
+  artifacts:
+    paths:
+      - dns-lib/
+  tags:
+    - build
+
+build:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    #Run only when reqs changed
+    - |
+      if [[ "$UPDATE_LIB" == "YES" ]]; then
+        /kaniko/executor \
+        --context "${CI_PROJECT_DIR}" \
+        --dockerfile "${dockerfile_base}" \
+        --destination "${registry_base}:latest" 
+      fi
+    - >-
+      /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${dockerfile}"
+      --build-arg "base_img=${registry_base}"
+      --destination "${registry_dest}:${CI_COMMIT_SHORT_SHA}"
+      --destination "${registry_dest}:latest"
+  variables:
+    dockerfile: .docker/Dockerfile
+    dockerfile_base: .docker/Dockerfile_base
+    registry_dest: ${REGISTRY}
+    registry_base: ${REGISTRY}/base
+  tags:
+    - build
+  only:
+    refs:
+      - stag
+  environment:
+    name: staging
+  dependencies:
+    - get_submodule
