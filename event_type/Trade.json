@@ -1,0 +1,26 @@
+[
+  {
+    "name": "orderID",
+    "type": "uint256"
+  },
+  {
+    "name": "fromTo",
+    "type": "address[2]"
+  },
+  {
+    "name": "nftAndToken",
+    "type": "address[2]"
+  },
+  {
+    "name": "idAndAmount",
+    "type": "uint256[2]"
+  },
+  {
+    "name": "additionalTokenReceivers",
+    "type": "address[]"
+  },
+  {
+    "name": "allAmounts",
+    "type": "uint256[]"
+  }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+    },
+    {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "label",
+        "type": "bytes32"
+    },
+    {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "cost",
+        "type": "uint256"
+    },
+    {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "expires",
+        "type": "uint256"
+    }
+]

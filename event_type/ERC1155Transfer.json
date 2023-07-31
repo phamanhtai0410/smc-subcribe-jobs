@@ -1,0 +1,10 @@
+[
+    {
+        "name": "token_id",
+        "type": "uint256"
+    },
+    {
+        "name": "value",
+        "type": "uint256"
+    }
+]
