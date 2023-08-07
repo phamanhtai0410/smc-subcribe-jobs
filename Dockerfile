@@ -1,4 +1,4 @@
-FROM 968557029040.dkr.ecr.ap-southeast-1.amazonaws.com/node:16-alpine as base
+FROM node:16-alpine as base
 
 USER root
 WORKDIR /webapps

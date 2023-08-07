@@ -1,0 +1,11 @@
+version: "3"
+services:
+
+  smc-job-service:
+    image: smc_job
+    container_name: smc_job 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    command: pm2-runtime start pm2.testnet.json
