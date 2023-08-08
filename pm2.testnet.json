@@ -2,21 +2,21 @@
   {
     "name": "eth-register-domain-event",
     "script": "./script/scanLogs.js",
-    "args": "--fromBlock=17697200 --taskNames=worker.task_register_domain --eventFileNames=RegisterDomain.json topics=0x69e37f151eb98a09618ddaa80c8cfaf1ce5996867c489f45b555b412271ebf27 --httpRpc=HTTP_ETHEREUM_RPC --address=0x6D901BFEe3Cc870BD086AedF0c38be2A28CD3F2a --parseLogFunction=registerLogs.js --chain=1",
+    "args": "--fromBlock=17697200 --taskNames=worker.task_register_domain --eventFileNames=RegisterDomain.json topics=0x69e37f151eb98a09618ddaa80c8cfaf1ce5996867c489f45b555b412271ebf27 --httpRpc=HTTP_SCROLL_RPC --address=0xc421c48C632de2d76F8a0e1B7896117c191410f1 --parseLogFunction=registerLogs.js --chain=534353",
     "instance": 1,
     "exc_mode": "cluster"
   },
   {
     "name": "eth-transfer-nft-event",
     "script": "./script/scanLogs.js",
-    "args": "--fromBlock=17697200 --taskNames=worker.on_transfer_nft --eventFileNames=ERC1155Transfer.json topics=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62 --httpRpc=HTTP_ETHEREUM_RPC --address=0x391EC3D61e83532dE10b0BA61A876D2a01C4214A --parseLogFunction=transferLogs.js --chain=1",
+    "args": "--fromBlock=17697200 --taskNames=worker.on_transfer_nft --eventFileNames=ERC1155Transfer.json topics=0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62 --httpRpc=HTTP_SCROLL_RPC --address=0xA4601639428A11D007b2CDCE0Ed5F5146926a582 --parseLogFunction=transferLogs.js --chain=534353",
     "instance": 1,
     "exc_mode": "cluster"
   },
   {
     "name": "eth-trade-nft-event",
     "script": "./script/scanLogs.js",
-    "args": "--fromBlock=17697200 --taskNames=worker.on_trade_nft --eventFileNames=Trade.json topics=0x8aa712bdfae8a5e4c7a931f7c3d5183e3ba99fd97d37d72b5ce1bdc47244c093 --httpRpc=HTTP_ETHEREUM_RPC --address=0xf0C5254e45c075924784238f70c6ebE7B848dF08 --chain=1",
+    "args": "--fromBlock=17697200 --taskNames=worker.on_trade_nft --eventFileNames=Trade.json topics=0x8aa712bdfae8a5e4c7a931f7c3d5183e3ba99fd97d37d72b5ce1bdc47244c093 --httpRpc=HTTP_SCROLL_RPC --address=0x5513e4bcfc84aC9A55Df2bc06a5133Ba7631775d --chain=534353",
     "instance": 1,
     "exc_mode": "cluster"
   }
