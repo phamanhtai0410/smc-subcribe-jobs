@@ -33,7 +33,7 @@ class SubscribeEvent {
     this.eventType = eventType;
     this.taskNames = taskNames;
     this.redis = redis;
-    this.REDIS_PREV_SUBSCRIBE_BLOCK_KEY = `dns.smc-subscribe-jobs.SubscribeEvent:${topics}:${chain}`;
+    this.REDIS_PREV_SUBSCRIBE_BLOCK_KEY = `scroll-id.smc-subscribe-jobs.SubscribeEvent:${topics}:${chain}`;
     this.celeryTasks = celeryTasks;
     this.address = address;
     this.redisAddressKey = redisAddressKey;
@@ -119,6 +119,7 @@ class SubscribeEvent {
     const prevBlockNumber = _.toInteger(
       await this.redis.get(this.REDIS_PREV_SUBSCRIBE_BLOCK_KEY)
     );
+    console.log("prevBlockNumber", prevBlockNumber);
     if (!prevBlockNumber) {
       return fromBlock;
     }
